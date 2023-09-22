@@ -1,6 +1,6 @@
 # as-poseidon
 
-A Starkware poseidon hash implementation in AssemblyScript
+A StarkWare poseidon hash implementation in AssemblyScript
 
 ---
 
