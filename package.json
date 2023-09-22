@@ -1,0 +1,28 @@
+{
+  "name": "as-poseidon",
+  "version": "0.1.0",
+  "description": "A poseidon hash implementation in AssemblyScript",
+  "type": "module",
+  "main": "index.js",
+  "ascMain": "assembly/index.ts",
+  "types": "assembly/index.ts",
+  "scripts": {
+    "test": "asp --verbose",
+    "build:debug": "asc assembly/index.ts --target debug",
+    "build:release": "asc assembly/index.ts --target release",
+    "build": "npm run build:debug && npm run build:release",
+    "format": "prettier --write \"assembly/**/*.ts\""
+  },
+  "keywords": [
+    "assemblyscript",
+    "poseidon",
+    "hash"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "@as-pect/cli": "8.0.1",
+    "assemblyscript": "0.25.2",
+    "prettier": "^2.8.4",
+    "typescript": "^4.9.5"
+  }
+}
