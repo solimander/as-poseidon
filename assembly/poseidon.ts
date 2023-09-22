@@ -72,17 +72,17 @@ function poseidon(inputs: BigInt[]): BigInt[] {
   return state;
 }
 
-export function poseidonHashMany(values: BigInt[]): BigInt {
+export function poseidonHashMany(values: string[]): string {
   if (!Array.isArray(values)) throw new Error('BigInt array expected in values');
 
   const padded = values.slice(); // Copy
-  padded.push(BigInt.from(1));
+  padded.push('1');
 
-  while (padded.length % RATE !== 0) padded.push(BigInt.from(0));
+  while (padded.length % RATE !== 0) padded.push('0');
   let state: BigInt[] = new Array<BigInt>(M).fill(BigInt.from(0));
   for (let i = 0; i < padded.length; i += RATE) {
     for (let j = 0; j < RATE; j++) state[j] = state[j].add(padded[i + j]);
     state = poseidon(state);
   }
-  return state[0];
+  return state[0].toString();
 }
